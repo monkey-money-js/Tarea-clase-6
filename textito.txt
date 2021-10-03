@@ -8,5 +8,3 @@ me da el siguiente error:
 Incluso compare mi archivo con los de Fabricio pero no me salio, aplique la misma logica pero me dio error
 igualmente.
 Ayuda / pista/ hint pls?
-
-
