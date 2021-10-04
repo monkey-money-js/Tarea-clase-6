@@ -37,7 +37,7 @@ $botonSiguiente.onclick = function funcionMiembros(){
   const numeroMiembros = Number($numeroMiembros.value);
   
 
-  borrarMiembrosAnteriores(numeroMiembros);
+  borrarMiembrosAnteriores();
   ///una vez que borras lo anterior creas los miembros.
   
   crearMiembros(numeroMiembros);
@@ -50,10 +50,8 @@ $botonSiguiente.onclick = function funcionMiembros(){
 /// Eso se soluciona con $miembros.lenght
 /// O bien con una arrow function con el forEach que lo hace por defecto.
 /// Alternativa a la arrow function:
-function borrarMiembrosAnteriores(numeroMiembros) {
+function borrarMiembrosAnteriores() {
   const $miembros = document.querySelectorAll('.miembro');
-  console.log("numeroMiembros", numeroMiembros)
-  console.log("$miembros.length", $miembros.length)
 
   for (let i = 0; i < $miembros.length; i++) {
     $miembros[i].remove();
@@ -70,6 +68,9 @@ function borrarMiembrosAnteriores(numeroMiembros){
   
 }
 */
+
+document.querySelector("#boton-resetear").onclick = resetear;
+
 function crearMiembros(numeroMiembros){
   if(numeroMiembros>0){
     mostrarBotonCalculo()
