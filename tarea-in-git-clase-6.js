@@ -44,10 +44,12 @@ $botonSiguiente.onclick = function funcionMiembros(){
 
 }
 
+/// antes = $miembros[i].remove();
+
 function borrarMiembrosAnteriores(numeroMiembros){
   const $miembros = document.querySelectorAll('.miembro');
   for (let i = 0; i < numeroMiembros; i++) {
-    $miembros[i].remove();
+    $miembros.forEach(miembro => miembro.remove());
   } 
   
 }
