@@ -44,8 +44,24 @@ $botonSiguiente.onclick = function funcionMiembros(){
 
 }
 
-/// antes = $miembros[i].remove();
 
+
+/// Basicamente el error era utilizar el parametro numeroMiembros como fin de indice i
+/// Eso se soluciona con $miembros.lenght
+/// O bien con una arrow function con el forEach que lo hace por defecto.
+/// Alternativa a la arrow function:
+function borrarMiembrosAnteriores(numeroMiembros) {
+  const $miembros = document.querySelectorAll('.miembro');
+  console.log("numeroMiembros", numeroMiembros)
+  console.log("$miembros.length", $miembros.length)
+
+  for (let i = 0; i < $miembros.length; i++) {
+    $miembros[i].remove();
+  }
+}
+
+/// antes = $miembros[i].remove();
+/*
 function borrarMiembrosAnteriores(numeroMiembros){
   const $miembros = document.querySelectorAll('.miembro');
   for (let i = 0; i < numeroMiembros; i++) {
@@ -53,7 +69,7 @@ function borrarMiembrosAnteriores(numeroMiembros){
   } 
   
 }
-
+*/
 function crearMiembros(numeroMiembros){
   if(numeroMiembros>0){
     mostrarBotonCalculo()
