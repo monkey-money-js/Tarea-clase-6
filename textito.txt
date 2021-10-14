@@ -8,7 +8,6 @@ me da el siguiente error:
 Incluso compare mi archivo con los de Fabricio pero no me salio, aplique la misma logica pero me dio error
 igualmente.
 Ayuda / pista/ hint pls?
-***********************************************************************************************************
 
 Nuevo problema:
 Al momento de querer mostrar la edad de los integrantes haciendo click en el boton calcular, lo que hace es
