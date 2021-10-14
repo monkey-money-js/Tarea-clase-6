@@ -1,9 +1,9 @@
 body{
-    background-color: purple;
+    background-color: black;
     color: white;
 }
 h1{
-    color:black;
+    color:rgb(150, 41, 41);
 }
 .oculto{
     display: none;

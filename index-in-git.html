@@ -24,22 +24,25 @@
         <label for="boton-siguiente">Cuantos miembros hay en tu familia?</label>
         <input type="number" placeholder="Ej: 4" id="numero-miembros-familia">
         <button type="button" id="boton-siguiente">Siguiente.</button><br><br>
-        <button type="reset" id="boton-resetear">Resetear</button>
-        <div id='miembros'>
-
+    
+        <div id="miembros">
 
         </div>
-        
 
-        <button type="button" id="calcular" class="oculto">Calcular</button>
+        <button type="button" id="boton-calcular" class="oculto">Calcular</button>
         
+        <div id="resultados" class="oculto">
+            <p>La mayor edad es: <strong id="mayor-edad"></strong></p>
+            <p>La menor edad es: <strong id="menor-edad"></strong></p>
+            <p>El promedio de edad es: <strong id="promedio-edad"></strong></p>
+        </div>
         
+        <button type="reset" id="boton-resetear">Resetear</button>
+
     </form>
     
-
-
-    
     <script type="text/javascript" src='tarea-in-git-clase-6.js'></script>
+    <script type="text/javascript" src="calculos-in-git.js" ></script>
 </body>
 
 </html>

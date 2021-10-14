@@ -5,7 +5,7 @@ Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad
 
 PONER CSS EN ARCHIVO HTML ABAJO.
 <link rel='stylesheet' type='text/css' media='screen' href='main-bis.css'>
-Recorda que tambien se puede crear todo eso con las teclas [ctrl + spacebar]
+Recorda que tambien se puede crear todo eso con las teclas [ctrl + spacebar] o tambien escribir <html> (+tab)
 
 Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
 */
@@ -17,34 +17,49 @@ const $textoParrafo = document.createTextNode("Hola un gusto don."); ///creamos 
 $nuevoParrafo.appendChild($textoParrafo); ///metemos el texto creado dentro del paragraph.
 $miHeader.appendChild($nuevoParrafo); ///concatenamos el header con el parrafo relleno. - metemos el paragraph dentro del header.
 
-/// Nombre del usuario cambiado.
 const $botonNombre = document.querySelector("#boton-nombre");
-$botonNombre.onclick = function funcionNombre(){
+$botonNombre.onclick = function(event){
   
   const $nombreUsuario = document.querySelector('#nombre-usuario').value;
 
   const $h1 = document.querySelector('h1');
-  $h1.textContent = `Bienvenid@ ${$nombreUsuario}!`
+  $h1.textContent = `Bienvenid@ ${$nombreUsuario}!`;
   
-  
+  event.preventDefault();
 }
 
-/// Ojo con esto... cuando hacemos click en la cantidad de miembros que pasa???
 const $botonSiguiente = document.querySelector("#boton-siguiente");
-$botonSiguiente.onclick = function funcionMiembros(){
+$botonSiguiente.onclick = function(event){
   
   const $numeroMiembros = document.querySelector("#numero-miembros-familia");
   const numeroMiembros = Number($numeroMiembros.value);
   
-
   borrarMiembrosAnteriores();
-  ///una vez que borras lo anterior creas los miembros.
-  
   crearMiembros(numeroMiembros);
 
+  event.preventDefault();
 }
 
 
+document.querySelector("#boton-calcular").onclick = function(event){
+  const numeros = obtenerEdadesMiembros();
+  mostrarEdad('mayor', calcularMayorEdad(numeros));
+  mostrarEdad('menor', calcularMenorEdad(numeros));
+  mostrarEdad('promedio', calcularPromedioEdad(numeros));
+  mostrarResultados();
+
+  event.preventDefault();
+}
+
+function obtenerEdadesMiembros(){
+  const $miembroInput = document.querySelectorAll('.miembro input');
+  const vectorEdad = [];
+  for (let i = 0; i < $miembroInput.length; i++) {
+    vectorEdad.push(Number($miembroInput[i].value));
+  }
+
+  return vectorEdad;
+}
 
 /// Basicamente el error era utilizar el parametro numeroMiembros como fin de indice i
 /// Eso se soluciona con $miembros.lenght
@@ -55,10 +70,11 @@ function borrarMiembrosAnteriores() {
 
   for (let i = 0; i < $miembros.length; i++) {
     $miembros[i].remove();
+
   }
 }
 
-/// antes = $miembros[i].remove();
+/// Arrow Function:
 /*
 function borrarMiembrosAnteriores(numeroMiembros){
   const $miembros = document.querySelectorAll('.miembro');
@@ -84,14 +100,11 @@ function crearMiembros(numeroMiembros){
 
 }
 
-
-
-
 /// Si NO ES MAYOR A 0 entonces resetea.
 function resetear(){
   borrarMiembrosAnteriores();
   ocultarBotonCalculo();
-  
+  ocultarResultados();
 }
 
 function crearMiembro(indice){
@@ -113,13 +126,39 @@ function crearMiembro(indice){
 }
 
 function ocultarBotonCalculo(){
-  document.querySelector("#calcular").className = "oculto";
+  document.querySelector("#boton-calcular").className = "oculto";
 }
 
-/// Cambiamos la class del boton de display none a espacio vacio (acordate del display none en el CSS).
+/// Cambiamos la class del boton de display a espacio vacio (acordate del display 'none' en el CSS).
 function mostrarBotonCalculo(){
-  document.querySelector("#calcular").className = '';
+  document.querySelector("#boton-calcular").className = '';
 }
+
+function ocultarResultados(){
+  document.querySelector("#resultados").className = 'oculto';
+}
+
+function mostrarResultados(){
+  document.querySelector("#resultados").className = '';
+}
+
+
+/*
+  <div id="resultados" class="oculto">
+            <p>La mayor edad es: <strong id="mayor-edad"></strong> </p>
+            <p>La menor edad es: <strong id="menor-edad"></strong> </p>
+            <p>El promedio de edad es: <strong id="promedio-edad"></strong> </p>
+   </div>
+*/
+
+function mostrarEdad(tipoDeValor,valor){
+  // tipo + edad;
+  // es decir en el queryselector de abajo decis dame el elemento que tenga este id Ej: 
+  // EJ: dame el elemento que tenga id="mayor-edad" ---> '#mayor-edad'
+  document.querySelector(`#${tipoDeValor}-edad`).textContent = valor;
+}
+
+
 
 /*
 TAREA:
