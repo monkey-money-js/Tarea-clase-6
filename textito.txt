@@ -1,12 +1,19 @@
 Bien, cree este repositorio con el fin de poder mostrarle mi tarea de clase 6 a los demas.
 Ademas, utilizo esta oportunidad para refrescar GitHub y sus funciones.
-El principal problema que tuve es que al querer borrar los miembros con la function borrarMiembrosAnteriores
+El principal problema (YA SOLUCIONADO) que tuve es que al querer borrar los miembros con la function borrarMiembrosAnteriores
 me da el siguiente error: 
     Uncaught TypeError: Cannot read properties of undefined (reading 'remove')
     at borrarMiembrosAnteriores (tarea-clase-6.js:50)
     at HTMLButtonElement.funcionMiembros (tarea-clase-6.js:40)
 Incluso compare mi archivo con los de Fabricio pero no me salio, aplique la misma logica pero me dio error
 igualmente.
+Ayuda / pista/ hint pls?
+***********************************************************************************************************
+
+Nuevo problema:
+Al momento de querer mostrar la edad de los integrantes haciendo click en el boton calcular, lo que hace es
+postear informacion erronea, diciendo que el mayor de edad es 0, el menor de edad es 1 y el promedio 
+es NaN (Not a Number).
 Ayuda / pista/ hint pls?
 
 
