@@ -15,5 +15,3 @@ Al momento de querer mostrar la edad de los integrantes haciendo click en el bot
 postear informacion erronea, diciendo que el mayor de edad es 0, el menor de edad es 1 y el promedio 
 es NaN (Not a Number).
 Ayuda / pista/ hint pls?
-
-
